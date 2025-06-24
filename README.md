@@ -1,17 +1,3 @@
-Thanks for the detailed structure! Since your backend contains `authMiddleware.js` and `generateToken.js`, and you're using `bcrypt`, it's clear you're implementing **JWT-based authentication** — even if it’s currently limited to a patient role.
-
-I'll now **update your `README.md`** to reflect:
-
-* JWT authentication using bcrypt.
-* Your actual backend and frontend folder structures.
-* Updated explanations around authentication and middleware.
-* Updated API endpoints list to include registration/login.
-
----
-
-### ✅ Updated `README.md`
-
-```markdown
 # 🧪 Lab Test Booking Portal
 
 A full-stack MERN (MongoDB, Express, React, Node.js) application that allows patients to register, view available lab tests, book them, and download lab reports. Authentication is handled using JWT and `bcrypt`.
