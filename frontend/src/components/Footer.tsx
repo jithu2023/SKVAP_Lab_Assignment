@@ -25,11 +25,10 @@ export default function Footer() {
         {/* Company info */}
         <Grid item xs={12} md={3}>
           <Typography variant="h6" gutterBottom>
-            DeepDive Labs
+            SKVAP Labs
           </Typography>
           <Typography variant="body2">
-            Unlocking Possibilities in Data and AI through Curiosity.
-          </Typography>
+Empowering patients and labs with seamless test<br/>management and secure reporting.          </Typography>
         </Grid>
 
         {/* Services */}
