@@ -14,15 +14,29 @@ export default function Bookings() {
   }, []);
 
   const downloadReport = (bookingId) => {
-    API.get(`/bookings/report/${bookingId}`, { responseType: 'blob' })
+    // Directly fetch static PDF from backend's /reports folder
+    const backendBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+    const fileUrl = `${backendBaseUrl}/reports/dummy_test_report.pdf`;
+
+    fetch(fileUrl)
       .then(res => {
-        const url = window.URL.createObjectURL(new Blob([res.data]));
+        if (!res.ok) {
+          throw new Error('Failed to download report');
+        }
+        return res.blob();
+      })
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'report.pdf');
+        link.setAttribute('download', `dummy_report_${bookingId}.pdf`);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+      })
+      .catch(err => {
+        console.error('Download error:', err);
+        alert('Failed to download report.');
       });
   };
 
@@ -40,7 +54,9 @@ export default function Bookings() {
             >
               <div>
                 <h3 className="text-lg font-semibold text-gray-800">{booking.test.name}</h3>
-                <p className="text-sm text-gray-500">Booked on: {new Date(booking.createdAt).toLocaleString()}</p>
+                <p className="text-sm text-gray-500">
+                  Booked on: {new Date(booking.createdAt).toLocaleString()}
+                </p>
               </div>
               <button
                 onClick={() => downloadReport(booking._id)}
