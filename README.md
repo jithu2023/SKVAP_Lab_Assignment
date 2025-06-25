@@ -91,7 +91,7 @@ frontend/
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/lab-booking-app.git
+git clone https://github.com/jithu2023/SKVAP_Lab_Assignment.git
 cd lab-booking-app
 ````
 
@@ -140,11 +140,6 @@ Make sure the frontend calls the backend at `http://localhost:5000` (configured 
   Registers a new patient.
   **Body:** `{ name, email, password }`
 
-* `POST /api/patients/login`
-  Logs in a patient and returns a JWT.
-  **Body:** `{ email, password }`
-
----
 
 ### 📄 Tests
 
@@ -163,8 +158,8 @@ Make sure the frontend calls the backend at `http://localhost:5000` (configured 
 * `GET /api/bookings`
   Gets all bookings for the logged-in user.
 
-* `GET /api/bookings/report/:bookingId`
-  Downloads the PDF report for a specific booking.
+* `GET /api/bookings/report/`
+    GET endpoint to return dummy report data as file 
 
 ---
 
@@ -187,5 +182,5 @@ Make sure the frontend calls the backend at `http://localhost:5000` (configured 
 
 ## 🧑‍💻 Author
 
-Built by [Jithumon Jacob](https://github.com/jithumonjacob)
+Built by [Jithumon Jacob](https://github.com/jithu2023)
 
